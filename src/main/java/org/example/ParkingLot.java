@@ -65,7 +65,10 @@ public class ParkingLot {
         double timePassed = exitTime - ticket.getTimeEntered();
         if (timePassed < 1) {
             return 0;
+        } else if (timePassed < prescribedHours) {
+            return (int) Math.ceil(timePassed) * hourlyFee;
+        } else {
+            return dailyFee;
         }
-        return (int) Math.ceil(timePassed) * hourlyFee;
     }
 }

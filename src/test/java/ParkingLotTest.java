@@ -79,4 +79,13 @@ public class ParkingLotTest {
         parkingLot.parkCar(ticket);
         assertEquals(6, parkingLot.carLeaves(ticket, 10.5));
     }
+
+    @Test
+    public void CarDoesGetChargedForDailyFeeLeavingAfterPrescribedHours() {
+        ParkingLot parkingLot = new ParkingLot(5, 2, 25, 10);
+        Car car = new Car("123", "black");
+        Ticket ticket = new Ticket(8, car, parkingLot.getNextAvailableParkingSlot());
+        parkingLot.parkCar(ticket);
+        assertEquals(25, parkingLot.carLeaves(ticket, 20.5));
+    }
 }
