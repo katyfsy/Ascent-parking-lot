@@ -54,4 +54,9 @@ public class ParkingLot {
         parkingSlotsStatus[ticket.getParkingSlot() - 1] = false;
         carParked[ticket.getParkingSlot() - 1] = ticket;
     }
+
+    public void carLeaves(Ticket ticket, int exitTime) {
+        parkingSlotsStatus[ticket.getParkingSlot() - 1] = true;
+        carParked[ticket.getParkingSlot() - 1] = null;
+    }
 }

@@ -49,4 +49,16 @@ public class ParkingLotTest {
         parkingLot.parkCar(ticket);
         assertEquals(2, parkingLot.getNextAvailableParkingSlot());
     }
+
+    @Test
+    public void CarLeavesParkingLot() {
+        ParkingLot parkingLot = new ParkingLot(5, 2, 25, 10);
+        Car car = new Car("123", "black");
+        Ticket ticket = new Ticket(8, car, parkingLot.getNextAvailableParkingSlot());
+        parkingLot.parkCar(ticket);
+        assertEquals(2, parkingLot.getNextAvailableParkingSlot());
+
+        parkingLot.carLeaves(ticket, 10);
+        assertEquals(1, parkingLot.getNextAvailableParkingSlot());
+    }
 }
