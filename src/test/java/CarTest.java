@@ -10,6 +10,4 @@ public class CarTest {
         assertEquals("123", car.getLicensePlate());
         assertEquals("Black", car.getColor());
     }
-
-    
 }

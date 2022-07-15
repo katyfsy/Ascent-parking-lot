@@ -1,19 +1,25 @@
 package org.example;
 
+import java.util.Arrays;
+
 public class ParkingLot {
     private int size = 0;
     private int hourlyFee = 0;
     private int dailyFee = 0;
     private int prescribedHours = 0;
 
-    private Ticket[] parkingSlots;
+    private Ticket[] carParked;
+
+    private boolean[] parkingSlotsStatus;
 
     public ParkingLot(int size, int hourlyFee, int dailyFee, int prescribedHours) {
         this.size = size;
         this.hourlyFee = hourlyFee;
         this.dailyFee = dailyFee;
         this.prescribedHours = prescribedHours;
-        this.parkingSlots = new Ticket[size];
+        this.parkingSlotsStatus = new boolean[size];
+        this.carParked = new Ticket[size];
+        Arrays.fill(this.parkingSlotsStatus, true);
     }
 
     public int getSize() {
@@ -31,7 +37,21 @@ public class ParkingLot {
         return prescribedHours;
     }
 
-    public Ticket[] getParkingSlot() {
-        return parkingSlots;
+    public boolean[] getParkingSlot() {
+        return parkingSlotsStatus;
+    }
+
+    public int getNextAvailableParkingSlot() {
+        for(int i = 0; i < size; i++) {
+            if (parkingSlotsStatus[i] == true) {
+                return i + 1;
+            }
+        }
+        return -1;
+    }
+
+    public void parkCar(Ticket ticket) {
+        parkingSlotsStatus[ticket.getParkingSlot() - 1] = false;
+        carParked[ticket.getParkingSlot() - 1] = ticket;
     }
 }
