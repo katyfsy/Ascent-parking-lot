@@ -28,5 +28,7 @@ public class ParkingLotTest {
         assertEquals(10, parkinglot.getPrescribedHours());
     }
 
+    @Test
+
 
 }
