@@ -27,4 +27,6 @@ public class ParkingLotTest {
         ParkingLot parkinglot = new ParkingLot(5, 2, 25, 10);
         assertEquals(10, parkinglot.getPrescribedHours());
     }
+
+
 }
