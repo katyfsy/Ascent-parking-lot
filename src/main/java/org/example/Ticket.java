@@ -1,7 +1,13 @@
 package org.example;
 
 public class Ticket {
-    public Ticket() {
+    private double timeEntered;
+    public Ticket(double timeEntered) {
+        this.timeEntered = timeEntered;
+    }
+
+    public double getTimeEntered() {
+        return timeEntered;
     }
 }
 
