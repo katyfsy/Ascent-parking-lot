@@ -18,4 +18,11 @@ public class TicketTest {
         Ticket ticket = new Ticket(8.5, car);
         assertEquals("123", ticket.getCarLicensePlate());
     }
+
+    @Test
+    public void TicketCanDocumentCarColor() {
+        Car car = new Car("123", "black");
+        Ticket ticket = new Ticket(8.5, car);
+        assertEquals("black", ticket.getCarColor());
+    }
 }
