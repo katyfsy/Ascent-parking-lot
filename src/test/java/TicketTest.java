@@ -32,6 +32,7 @@ public class TicketTest {
         Car car = new Car("123", "black");
         Ticket ticket = new Ticket(8.5, car, 1);
         assertTrue(ticket.getTicketID() instanceof Object);
+        assertEquals(true, ticket.getTicketID().matches("^[a-zA-Z0-9_]+$"));
     }
 
     @Test
