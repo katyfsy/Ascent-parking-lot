@@ -66,6 +66,6 @@ public class ParkingLot {
         if (timePassed < 1) {
             return 0;
         }
-        return 0;
+        return (int) Math.ceil(timePassed) * hourlyFee;
     }
 }
