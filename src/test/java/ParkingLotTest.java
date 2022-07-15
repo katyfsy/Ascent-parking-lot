@@ -127,6 +127,15 @@ public class ParkingLotTest {
     }
     @Test
     public void TicketingSystemShouldProvideSlotNumberGivenLicensePlate() {
+        ParkingLot parkingLot = new ParkingLot(5, 2, 25, 10);
+        Car car1 = new Car("123", "black");
+        Ticket ticket1 = new Ticket(8, car1, parkingLot.getNextAvailableParkingSlot());
+        parkingLot.parkCar(ticket1);
 
+        Car car2 = new Car("456", "black");
+        Ticket ticket2 = new Ticket(8, car2, parkingLot.getNextAvailableParkingSlot());
+        parkingLot.parkCar(ticket2);
+
+        assertEquals(2, parkingLot.getSlotNumbersByLicensePlate("456"));
     }
 }

@@ -97,4 +97,15 @@ public class ParkingLot {
         }
         return slotNumbers;
     }
+
+    public int getSlotNumbersByLicensePlate(String licensePlate) {
+        for (int i = 0; i < parkingSlotsStatus.length; i ++) {
+            if (parkingSlotsStatus[i] == false) {
+                if ((carParked[i].getCarLicensePlate()).equals(licensePlate)) {
+                    return carParked[i].getParkingSlot();
+                }
+            }
+        }
+        return -1;
+    }
 }
