@@ -7,11 +7,13 @@ public class Ticket {
     private String carLicensePlate;
     private String carColor;
     private String id;
-    public Ticket(double timeEntered, Car car) {
+    private int parkingSlot;
+    public Ticket(double timeEntered, Car car, int parkingSlot) {
         this.timeEntered = timeEntered;
         this.carLicensePlate = car.getLicensePlate();
         this.carColor = car.getColor();
         this.id = getSaltString();
+        this.parkingSlot = parkingSlot;
     }
 
     protected String getSaltString() {
@@ -40,7 +42,12 @@ public class Ticket {
     }
 
     public String getTicketID() {
+        //System.out.println(id);
         return id;
+    }
+
+    public int getParkingSlot() {
+        return parkingSlot;
     }
 }
 
