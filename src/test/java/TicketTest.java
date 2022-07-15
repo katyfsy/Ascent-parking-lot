@@ -3,6 +3,7 @@ import org.example.Ticket;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TicketTest {
     @Test
@@ -24,5 +25,12 @@ public class TicketTest {
         Car car = new Car("123", "black");
         Ticket ticket = new Ticket(8.5, car);
         assertEquals("black", ticket.getCarColor());
+    }
+
+    @Test
+    public void TicketCanDocumentTicketID() {
+        Car car = new Car("123", "black");
+        Ticket ticket = new Ticket(8.5, car);
+        assertTrue(ticket.getTicketID() instanceof Object);
     }
 }
