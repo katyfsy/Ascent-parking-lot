@@ -1,6 +1,8 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class ParkingLot {
     private int size = 0;
@@ -70,5 +72,29 @@ public class ParkingLot {
         } else {
             return dailyFee;
         }
+    }
+
+    public List<String> getLicensePlatesOfColour(String color) {
+        List<String> licensePlates = new ArrayList<>();
+        for (int i = 0; i < parkingSlotsStatus.length; i ++) {
+            if (parkingSlotsStatus[i] == false) {
+                if ((carParked[i].getCarColor()).equals(color)) {
+                    licensePlates.add(carParked[i].getCarLicensePlate());
+                }
+            }
+        }
+        return licensePlates;
+    }
+
+    public List<Integer> getSlotNumbersByColour(String color) {
+        List<Integer> slotNumbers = new ArrayList<>();
+        for (int i = 0; i < parkingSlotsStatus.length; i ++) {
+            if (parkingSlotsStatus[i] == false) {
+                if ((carParked[i].getCarColor()).equals(color)) {
+                    slotNumbers.add(carParked[i].getParkingSlot());
+                }
+            }
+        }
+        return slotNumbers;
     }
 }
